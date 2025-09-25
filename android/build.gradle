@@ -2,22 +2,21 @@ group 'co.paystack.flutterpaystack'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.20'
+    ext.kotlin_version = '1.8.10'
     repositories {
-        mavenCentral()
         google()
+        mavenCentral()
     }
-
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.0-rc02'
+        classpath 'com.android.tools.build:gradle:7.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 rootProject.allprojects {
     repositories {
-        mavenCentral()
         google()
+        mavenCentral()
     }
 }
 
@@ -26,22 +25,24 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace "co.paystack.flutterpaystack"
-    compileSdkVersion 32
+    compileSdkVersion 33
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode 21
         versionName "3.0.10"
     }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
     lintOptions {
         disable 'InvalidPackage'
     }
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'com.google.android.material:material:1.8.0'
 }
